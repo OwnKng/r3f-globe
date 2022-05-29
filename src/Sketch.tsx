@@ -1,6 +1,5 @@
 import { useMemo, useRef } from "react"
 import { worldMap } from "./data/worldMap"
-import * as THREE from "three"
 import { useTexture } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
 import { Points } from "three"
