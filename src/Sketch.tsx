@@ -37,7 +37,7 @@ const fragment = `
         vec3 characterMap = texture2D(uTexture, vec2(_uv.x, 1.0 - _uv.y)).rgb; 
         if(characterMap.r > 0.5) discard; 
 
-        gl_FragColor = vec4(vec3(1.0, 1.0, 1.0), 1.0); 
+        gl_FragColor = vec4(vec3(0.77, 0.82, 0.92), 1.0); 
     }
 `
 
@@ -52,7 +52,7 @@ const Sketch = () => {
     const positions = new Float32Array(worldMap.length * 3)
     const distortion = new Float32Array(worldMap.length)
 
-    worldMap.map(({ lon, lat }, i) => {
+    worldMap.forEach(({ lon, lat }, i) => {
       const theta = radians(lat) + Math.PI / 2
       const phi = radians(lon) + Math.PI
 
@@ -73,7 +73,7 @@ const Sketch = () => {
     [texture]
   )
 
-  useFrame(() => (ref.current.rotation.z += 0.005))
+  useFrame(() => (ref.current.rotation.z += 0.0025))
 
   return (
     <points ref={ref} rotation={[-Math.PI * 0.5, -Math.PI + 0.1, 0]}>
